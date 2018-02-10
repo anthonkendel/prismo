@@ -1,1 +1,5 @@
-export default {};
+export default {
+  setLNSProfile(state, profile) {
+    state.lNSProfile = profile;
+  },
+};

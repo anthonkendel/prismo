@@ -1,19 +1,19 @@
 <template lang="pug">
   .container
-    l-profile-view
-    l-profile-edit
+    l-profile-tabs
+    router-view
 </template>
 
 <script>
-import LProfileView from '@/components/LProfileView';
-import LProfileEdit from '@/components/LProfileEdit';
+import LProfileTabs from '@/components/LProfileTabs';
 
 export default {
   name: 'LProfile',
-  components: { LProfileView, LProfileEdit },
+  components: {
+    LProfileTabs,
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-
 </style>
