@@ -1,5 +1,7 @@
+import Product from '@/models/Product';
+
 export default class EyeSetting {
-  constructor({ product = '', strength = 0, inventory = 0, notes = '' } = {}) {
+  constructor({ product = new Product(), strength = 0, inventory = 0, notes = '' } = {}) {
     this.product = product;
     this.strength = strength;
     this.inventory = inventory;

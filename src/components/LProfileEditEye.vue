@@ -1,12 +1,6 @@
 <template lang="pug">
   div
-    b-field(label="Find your product")
-      b-autocomplete(
-      v-model="eye.product",
-      :data="filteredDataArray",
-      placeholder="e.g. BioInfinity",
-      icon="search")
-        template(slot="empty") No results found
+    l-profile-edit-eye-autocomplete(:product="eye.product", @input="setProduct")
     .columns
       .column
         b-field.is-expanded(label="Set your strength")
@@ -34,7 +28,10 @@
 </template>
 
 <script>
+import LProfileEditEyeAutocomplete from '@/components/LProfileEditEyeAutocomplete';
+
 export default {
+  components: { LProfileEditEyeAutocomplete },
   name: 'LProfileEditEye',
   props: {
     eye: {
@@ -46,31 +43,10 @@ export default {
       default: false,
     },
   },
-  computed: {
-    filteredDataArray() {
-      return this.data.filter(option => option
-        .toString()
-        .toLowerCase()
-        .indexOf(this.eye.product.toLowerCase()) >= 0);
+  methods: {
+    setProduct(product) {
+      this.eye.product = product;
     },
-  },
-  data() {
-    return {
-      data: [
-        'Angular',
-        'Angular 2',
-        'Aurelia',
-        'Backbone',
-        'Ember',
-        'jQuery',
-        'Meteor',
-        'Node.js',
-        'Polymer',
-        'React',
-        'RxJS',
-        'Vue.js',
-      ],
-    };
   },
 };
 </script>

@@ -7,12 +7,13 @@
             b-icon(icon="eye")
         .level
           l-profile-view-level-item(heading="Product")
-            | {{ profile.left.product }}
+            p.product-name {{ profile.left.product.name }}
+            small.product-supplier {{ profile.left.product.supplier }}
         .level
           l-profile-view-level-item(heading="Strength")
-            | {{ profile.left.strength }}
+            p {{ profile.left.strength }}
           l-profile-view-level-item(heading="Inventory")
-            | {{ profile.left.inventory }} left
+            p {{ profile.left.inventory }} left
         .notes-level
           p.heading Additional notes
           p {{ profile.left.notes }}
@@ -22,20 +23,21 @@
             b-icon(icon="eye")
         .level
           l-profile-view-level-item(heading="Product")
-            | {{ profile.right.product }}
+            p.product-name {{ profile.right.product.name }}
+            small.product-supplier {{ profile.right.product.supplier }}
         .level
           l-profile-view-level-item(heading="Strength")
-            | {{ profile.right.strength }}
+            p {{ profile.right.strength }}
           l-profile-view-level-item(heading="Inventory")
-            | {{ profile.right.inventory }} left
+            p {{ profile.right.inventory }} left
         .notes-level
           p.heading Additional notes
           p {{ profile.right.notes }}
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
 import LProfileViewLevelItem from '@/components/LProfileViewLevelItem';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'LProfileCurrent',
@@ -51,6 +53,14 @@ export default {
 <style lang="scss" scoped>
   section.section {
     text-align: center;
+
+    .product-name {
+      font-size: 0.8em;
+    }
+
+    .product-supplier {
+      font-size: 0.7em;
+    }
 
     /* Override Bulma */
     .level:not(:last-child) {

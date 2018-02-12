@@ -3,7 +3,7 @@
     .container
       .navbar-brand
         router-link.navbar-item(:to="{ 'name': 'LNS' }" exact)
-          .title L N S
+          .title Prismo.cc
         button.button.navbar-burger.is-black(
         @click="toggleNavigation",
         :class="{ 'is-active': isMobileNavigation }")
@@ -39,7 +39,8 @@ export default {
 
   .title {
     color: $white;
-    font-size: 2.4em;
+    font-size: 1.4em;
+    text-transform: uppercase;
   }
 
   svg {
