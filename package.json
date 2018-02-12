@@ -1,7 +1,7 @@
 {
-  "name": "lns",
+  "name": "prismo",
   "version": "1.0.0",
-  "description": "lns",
+  "description": "prismo",
   "author": "Anthon Holmqvist <anthon.kendel@gmail.com>",
   "private": true,
   "scripts": {
@@ -88,8 +88,8 @@
     "webpack-merge": "^4.1.0"
   },
   "engines": {
-    "node": ">= 6.0.0",
-    "npm": ">= 3.0.0"
+    "node": ">= 8.0.0",
+    "npm": ">= 5.0.0"
   },
   "browserslist": [
     "> 1%",
