@@ -3,25 +3,25 @@
     section.section
       .columns
         .column
-          h1.title Edit
+          h2.title Edit
       .columns
         .column
-          h2.title Left eye
+          h3.title Left eye
           l-profile-edit-eye(:eye="left")
         .column
-          h2.title Right eye
+          h3.title Right eye
           l-profile-edit-eye(:eye="right")
     section.section
       .columns
         .column
-          button.button.is-black(@click="saveChanges") Save changes
+          button.button.is-primary(@click="saveChanges") Save changes
 </template>
 
 <script>
-import { mapGetters, mapMutations } from 'vuex';
+import LProfileEditEye from '@/components/LProfileEditEye';
 import EyeSetting from '@/models/EyeSetting';
 import LNSProfile from '@/models/LNSProfile';
-import LProfileEditEye from '@/components/LProfileEditEye';
+import { mapGetters, mapMutations } from 'vuex';
 
 export default {
   name: 'LProfileEdit',
@@ -46,15 +46,15 @@ export default {
       this.$snackbar
         .open({
           message: 'Profile saved',
-          type: 'is-success',
+          type: 'is-primary',
           actionText: 'OK 👌',
         });
     },
   },
   components: { LProfileEditEye },
   mounted() {
-    this.left = Object.assign(new EyeSetting(), this.profile.left);
-    this.right = Object.assign(new EyeSetting(), this.profile.right);
+    this.left = { ...new EyeSetting(), ...this.profile.left };
+    this.right = { ...new EyeSetting(), ...this.profile.right };
   },
 };
 </script>
@@ -64,7 +64,7 @@ export default {
     font-size: 1.6em;
   }
 
-  button.button.is-black {
+  button.button.is-primary {
     width: 100%;
   }
 </style>

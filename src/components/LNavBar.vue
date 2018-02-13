@@ -3,7 +3,8 @@
     .container
       .navbar-brand
         router-link.navbar-item(:to="{ 'name': 'LNS' }" exact)
-          .title Prismo.cc
+          .title Prism
+            b-icon(icon="dot-circle")
         button.button.navbar-burger.is-black(
         @click="toggleNavigation",
         :class="{ 'is-active': isMobileNavigation }")
@@ -37,10 +38,25 @@ export default {
 <style lang="scss" scoped>
   @import "../assets/lns-styles";
 
+  figure {
+    padding: 10px;
+
+    .image {
+      max-height: 40px;
+      width: auto;
+    }
+  }
+
   .title {
     color: $white;
+    letter-spacing: 1px;
     font-size: 1.4em;
     text-transform: uppercase;
+
+    .icon {
+      position: absolute;
+      color: $primary;
+    }
   }
 
   svg {

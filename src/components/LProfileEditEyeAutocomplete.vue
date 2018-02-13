@@ -21,11 +21,11 @@
 </template>
 
 <script>
-import productService from '@/services/productService';
+import { productService } from '@/services';
 
 function hide(elements) {
   // eslint-disable-next-line
-  elements.forEach(element => element.style.display = 'none');
+    elements.forEach(element => element.style.display = 'none');
 }
 
 export default {
