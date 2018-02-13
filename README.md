@@ -1,4 +1,4 @@
-# PRISMO
+# ![Prismo logo](/static/prismo-logo-md.png)
 
 ## Build setup 🔨
 
