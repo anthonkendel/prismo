@@ -23,3 +23,8 @@ npm test
 ```
 
 ## Contributing 🎨
+
+Any improvements or contributions is appreciated. If contributing, please ensure that:
+
+* `npm run lint` passes
+* changes will improve the source code and/or project
