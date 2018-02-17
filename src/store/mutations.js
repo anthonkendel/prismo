@@ -1,5 +1,5 @@
 export default {
-  setLNSProfile(state, profile) {
-    state.lNSProfile = profile;
+  setPrismoProfile(state, profile) {
+    state.prismoProfile = profile;
   },
 };

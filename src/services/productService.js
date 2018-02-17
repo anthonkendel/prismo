@@ -1,5 +1,5 @@
-import axios from 'axios';
 import Product from '@/models/Product';
+import axios from 'axios';
 
 export default {
   async getProducts() {

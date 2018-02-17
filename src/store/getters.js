@@ -1,5 +1,5 @@
 export default {
-  getLNSProfile(state) {
-    return state.lNSProfile;
+  getPrismoProfile(state) {
+    return state.prismoProfile;
   },
 };

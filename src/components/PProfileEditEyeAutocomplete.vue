@@ -25,11 +25,11 @@ import { productService } from '@/services';
 
 function hide(elements) {
   // eslint-disable-next-line
-    elements.forEach(element => element.style.display = 'none');
+    elements.forEach(element => (element.style.display = 'none'));
 }
 
 export default {
-  name: 'LProfileEditEyeAutocomplete',
+  name: 'PProfileEditEyeAutocomplete',
   props: {
     product: {
       type: Object,
@@ -43,13 +43,21 @@ export default {
       isLoading: false,
     };
   },
+  mounted() {
+    this.$nextTick(() => {
+      const dropdowns = this.$el.querySelectorAll('.dropdown-menu');
+      hide(dropdowns);
+    });
+  },
   methods: {
     async onInput() {
       this.data = [];
       this.isLoading = true;
 
       const products = await productService.getProducts();
-      const filteredProducts = products.filter(item => item.name.indexOf(this.product.name) >= 0);
+      const filteredProducts = products.filter(
+        item => item.name.indexOf(this.product.name) >= 0,
+      );
       this.data = [...filteredProducts];
 
       this.isLoading = false;
@@ -58,14 +66,8 @@ export default {
       }
     },
   },
-  mounted() {
-    this.$nextTick(() => {
-      const dropdowns = this.$el.querySelectorAll('.dropdown-menu');
-      hide(dropdowns);
-    });
-  },
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 </style>

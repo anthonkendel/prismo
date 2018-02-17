@@ -1,16 +1,16 @@
 <template lang="pug">
   .container
-    l-profile-tabs
+    p-profile-tabs
     router-view
 </template>
 
 <script>
-import LProfileTabs from '@/components/LProfileTabs';
+import PProfileTabs from '@/components/PProfileTabs';
 
 export default {
-  name: 'LProfile',
+  name: 'PProfile',
   components: {
-    LProfileTabs,
+    PProfileTabs,
   },
 };
 </script>

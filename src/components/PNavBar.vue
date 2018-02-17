@@ -2,7 +2,7 @@
   nav.navbar.is-black(role="navigation" aria-label="main navigation")
     .container
       .navbar-brand
-        router-link.navbar-item(:to="{ 'name': 'LNS' }" exact)
+        router-link.navbar-item(:to="{ 'name': 'Prismo' }" exact)
           .title Prism
             b-icon(icon="dot-circle")
         button.button.navbar-burger.is-black(
@@ -13,15 +13,14 @@
           span
       .navbar-menu(:class="{ 'is-active': isMobileNavigation }")
         .navbar-end
-          router-link.navbar-item(:to="{ 'name': 'LProfileView' }")
+          router-link.navbar-item(:to="{ 'name': 'PProfileView' }")
             i.fa.fa-user-circle
             | Profile
-
 </template>
 
 <script>
 export default {
-  name: 'LNavBar',
+  name: 'PNavBar',
   data() {
     return {
       isMobileNavigation: false,
@@ -36,7 +35,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import "../assets/lns-styles";
+  @import "../assets/prismo-styles";
 
   figure {
     padding: 10px;

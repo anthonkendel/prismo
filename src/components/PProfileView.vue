@@ -3,32 +3,32 @@
     .columns
       .column
         .level
-          l-profile-view-level-item(heading="Left eye")
+          p-profile-view-level-item(heading="Left eye")
             b-icon(icon="eye")
         .level
-          l-profile-view-level-item(heading="Product")
+          p-profile-view-level-item(heading="Product")
             p.product-name {{ profile.left.product.name }}
             small.product-supplier {{ profile.left.product.supplier }}
         .level
-          l-profile-view-level-item(heading="Strength")
+          p-profile-view-level-item(heading="Strength")
             p {{ profile.left.strength }}
-          l-profile-view-level-item(heading="Inventory")
+          p-profile-view-level-item(heading="Inventory")
             p {{ profile.left.inventory }} left
         .notes-level
           p.heading Additional notes
           p {{ profile.left.notes }}
       .column
         .level
-          l-profile-view-level-item(heading="Right eye")
+          p-profile-view-level-item(heading="Right eye")
             b-icon(icon="eye")
         .level
-          l-profile-view-level-item(heading="Product")
+          p-profile-view-level-item(heading="Product")
             p.product-name {{ profile.right.product.name }}
             small.product-supplier {{ profile.right.product.supplier }}
         .level
-          l-profile-view-level-item(heading="Strength")
+          p-profile-view-level-item(heading="Strength")
             p {{ profile.right.strength }}
-          l-profile-view-level-item(heading="Inventory")
+          p-profile-view-level-item(heading="Inventory")
             p {{ profile.right.inventory }} left
         .notes-level
           p.heading Additional notes
@@ -36,17 +36,17 @@
 </template>
 
 <script>
-import LProfileViewLevelItem from '@/components/LProfileViewLevelItem';
+import PProfileViewLevelItem from '@/components/PProfileViewLevelItem';
 import { mapGetters } from 'vuex';
 
 export default {
-  name: 'LProfileCurrent',
+  name: 'PProfileCurrent',
+  components: { PProfileViewLevelItem },
   computed: {
     ...mapGetters({
-      profile: 'getLNSProfile',
+      profile: 'getPrismoProfile',
     }),
   },
-  components: { LProfileViewLevelItem },
 };
 </script>
 

@@ -1,5 +1,5 @@
-import LNSProfile from '@/models/LNSProfile';
+import PrismoProfile from '@/models/PrismoProfile';
 
 export default {
-  lNSProfile: new LNSProfile(),
+  prismoProfile: new PrismoProfile(),
 };

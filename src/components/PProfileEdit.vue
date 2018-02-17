@@ -7,10 +7,10 @@
       .columns
         .column
           h3.title Left eye
-          l-profile-edit-eye(:eye="left")
+          p-profile-edit-eye(:eye="left")
         .column
           h3.title Right eye
-          l-profile-edit-eye(:eye="right")
+          p-profile-edit-eye(:eye="right")
     section.section
       .columns
         .column
@@ -18,31 +18,36 @@
 </template>
 
 <script>
-import LProfileEditEye from '@/components/LProfileEditEye';
-import EyeSetting from '@/models/EyeSetting';
-import LNSProfile from '@/models/LNSProfile';
 import { mapGetters, mapMutations } from 'vuex';
+import Eye from '@/models/Eye';
+import PProfileEditEye from '@/components/PProfileEditEye';
+import PrismoProfile from '@/models/PrismoProfile';
 
 export default {
-  name: 'LProfileEdit',
-  computed: {
-    ...mapGetters({
-      profile: 'getLNSProfile',
-    }),
-  },
+  name: 'PProfileEdit',
+  components: { PProfileEditEye },
   data() {
     return {
-      left: new EyeSetting(),
-      right: new EyeSetting(),
+      left: new Eye(),
+      right: new Eye(),
     };
+  },
+  computed: {
+    ...mapGetters({
+      profile: 'getPrismoProfile',
+    }),
+  },
+  mounted() {
+    this.left = { ...new Eye(), ...this.profile.left };
+    this.right = { ...new Eye(), ...this.profile.right };
   },
   methods: {
     ...mapMutations({
-      setLNSProfile: 'setLNSProfile',
+      setPrismoProfile: 'setPrismoProfile',
     }),
     saveChanges() {
-      const profile = new LNSProfile({ left: this.left, right: this.right });
-      this.setLNSProfile(profile);
+      const profile = new PrismoProfile({ left: this.left, right: this.right });
+      this.setPrismoProfile(profile);
       this.$snackbar
         .open({
           message: 'Profile saved',
@@ -50,11 +55,6 @@ export default {
           actionText: 'OK 👌',
         });
     },
-  },
-  components: { LProfileEditEye },
-  mounted() {
-    this.left = { ...new EyeSetting(), ...this.profile.left };
-    this.right = { ...new EyeSetting(), ...this.profile.right };
   },
 };
 </script>

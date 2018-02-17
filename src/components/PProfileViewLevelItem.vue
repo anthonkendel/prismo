@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'LProfileViewLevelItem',
+  name: 'PProfileViewLevelItem',
   props: {
     heading: {
       type: String,

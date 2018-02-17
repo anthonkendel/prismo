@@ -1,6 +1,6 @@
 <template lang="pug">
   div
-    l-profile-edit-eye-autocomplete(:product="eye.product", @input="setProduct")
+    p-profile-edit-eye-autocomplete(:product="eye.product", @input="setProduct")
     .columns
       .column
         b-field.is-expanded(label="Set your strength")
@@ -28,11 +28,11 @@
 </template>
 
 <script>
-import LProfileEditEyeAutocomplete from '@/components/LProfileEditEyeAutocomplete';
+import PProfileEditEyeAutocomplete from '@/components/PProfileEditEyeAutocomplete';
 
 export default {
-  components: { LProfileEditEyeAutocomplete },
-  name: 'LProfileEditEye',
+  name: 'PProfileEditEye',
+  components: { PProfileEditEyeAutocomplete },
   props: {
     eye: {
       type: Object,
@@ -51,6 +51,5 @@ export default {
 };
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
 </style>
