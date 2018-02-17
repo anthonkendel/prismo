@@ -8,7 +8,6 @@
 <script>
 import PAuth from '@/components/PAuth';
 import PNavBar from '@/components/PNavBar';
-import store from '@/store';
 
 export default {
   name: 'App',
@@ -16,7 +15,6 @@ export default {
     PAuth,
     PNavBar,
   },
-  store,
 };
 </script>
 

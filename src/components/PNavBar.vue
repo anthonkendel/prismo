@@ -1,30 +1,37 @@
 <template lang="pug">
-  nav.navbar.is-black(role="navigation" aria-label="main navigation")
+  nav.navbar.is-info(role="navigation" aria-label="main navigation")
     .container
       .navbar-brand
         router-link.navbar-item(:to="{ 'name': 'Prismo' }" exact)
           .title Prism
             b-icon(icon="dot-circle")
-        button.button.navbar-burger.is-black(
+        button.button.navbar-burger.is-info(
         @click="toggleNavigation",
         :class="{ 'is-active': isMobileNavigation }")
           span
           span
           span
       .navbar-menu(:class="{ 'is-active': isMobileNavigation }")
-        .navbar-end
-          router-link.navbar-item(:to="{ 'name': 'PProfileView' }")
-            i.fa.fa-user-circle
-            | Profile
+        .navbar-end(v-if="isAuthenticated")
+            router-link.navbar-item(:to="{ 'name': 'PProfileView' }")
+              i.fa.fa-user-circle
+              | Profile
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
   name: 'PNavBar',
   data() {
     return {
       isMobileNavigation: false,
     };
+  },
+  computed: {
+    ...mapGetters({
+      isAuthenticated: 'isAuthenticated',
+    }),
   },
   methods: {
     toggleNavigation() {
