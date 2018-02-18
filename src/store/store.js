@@ -17,7 +17,7 @@ const store = new Vuex.Store({
   plugins: [
     createPersistedState({
       key: KEY,
-      paths: ['user'],
+      paths: ['user', 'prismoProfile'],
     }),
   ],
 });
