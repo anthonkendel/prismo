@@ -2,7 +2,7 @@ import 'buefy/lib/buefy.css';
 import App from '@/App';
 import Buefy from 'buefy';
 import Vue from 'vue';
-import backgroundService from '@/services/backgroundService';
+import { backgroundService } from '@/services';
 import router from '@/router';
 import store from '@/store';
 

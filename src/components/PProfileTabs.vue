@@ -4,12 +4,12 @@
       ul
         router-link(:to="{ 'name': 'PProfileView' }" tag="li" exact)
           a
-            b-icon(icon="user-circle")
-            span Profile
+            span View
+            b-icon(icon="eye")
         router-link(:to="{ 'name': 'PProfileEdit' }" tag="li" exact)
           a
-            b-icon(icon="edit")
             span Edit
+            b-icon(icon="cog")
 </template>
 
 <script>
