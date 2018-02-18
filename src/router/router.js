@@ -1,7 +1,7 @@
-import PLogin from '@/components/PLogin';
 import PProfile from '@/components/PProfile';
 import PProfileEdit from '@/components/PProfileEdit';
 import PProfileView from '@/components/PProfileView';
+import PWelcome from '@/components/PWelcome';
 import Router from 'vue-router';
 import Vue from 'vue';
 import authService from '@/services/authService';
@@ -13,9 +13,9 @@ const configuration = {
   mode: 'history',
   routes: [
     {
-      path: '/login',
-      name: 'PLogin',
-      component: PLogin,
+      path: '/welcome',
+      name: 'PWelcome',
+      component: PWelcome,
     },
     {
       path: '/',
@@ -78,7 +78,7 @@ function checkRouteAuthentication(to, from, next) {
     if (isAuthenticated) {
       next();
     } else {
-      next({ name: 'PLogin' });
+      next({ name: 'PWelcome' });
     }
   } else {
     next();

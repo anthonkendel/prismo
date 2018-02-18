@@ -32,7 +32,7 @@ export default {
     logout() {
       this.clearStore();
       authService.setAccessToken('');
-      this.$router.push({ name: 'PLogin' });
+      this.$router.push({ name: 'PWelcome' });
     },
   },
 };

@@ -21,7 +21,7 @@ import authService from '@/services/authService';
 import { mapGetters } from 'vuex';
 
 export default {
-  name: 'PLogin',
+  name: 'PWelcome',
   computed: {
     ...mapGetters({
       isAuthenticated: 'isAuthenticated',
@@ -56,7 +56,6 @@ export default {
   }
 
   button.button.is-primary {
-
     .icon {
       margin-left: 10px;
       margin-right: 10px;
