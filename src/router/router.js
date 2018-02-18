@@ -63,6 +63,10 @@ async function validateAccessTokenReceivedFromHash(hash) {
     if (authenticated) {
       authService.setAccessToken(accessToken);
       store.commit('setAuthenticated', authenticated);
+
+      const userInfo = await authService.getUserInfo(accessToken);
+      store.commit('setUserInfo', userInfo);
+
       router.push({ hash: '' });
     }
   }

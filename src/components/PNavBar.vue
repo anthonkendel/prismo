@@ -13,16 +13,19 @@
           span
       .navbar-menu(:class="{ 'is-active': isMobileNavigation }")
         .navbar-end(v-if="isAuthenticated")
-            router-link.navbar-item(:to="{ 'name': 'PProfileView' }")
-              i.fa.fa-user-circle
-              | Profile
+          router-link.navbar-item(:to="{ 'name': 'PProfileView' }")
+            span Profile
+          .navbar-item
+            p-nav-bar-logout
 </template>
 
 <script>
+import PNavBarLogout from '@/components/PNavBarLogout';
 import { mapGetters } from 'vuex';
 
 export default {
   name: 'PNavBar',
+  components: { PNavBarLogout },
   data() {
     return {
       isMobileNavigation: false,
@@ -44,15 +47,6 @@ export default {
 <style lang="scss" scoped>
   @import "../assets/prismo-styles";
 
-  figure {
-    padding: 10px;
-
-    .image {
-      max-height: 40px;
-      width: auto;
-    }
-  }
-
   .title {
     color: $white;
     letter-spacing: 1px;
@@ -63,10 +57,5 @@ export default {
       position: absolute;
       color: $primary;
     }
-  }
-
-  svg {
-    margin-left: 4px;
-    margin-right: 4px;
   }
 </style>
