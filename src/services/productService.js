@@ -3,7 +3,11 @@ import axios from 'axios';
 
 export default {
   async getProducts() {
-    const response = await axios.get('static/products.json');
-    return response.data.map(product => new Product(product));
+    try {
+      const response = await axios.get('/static/products.json');
+      return response.data.map(product => new Product(product));
+    } catch (e) {
+      return [];
+    }
   },
 };

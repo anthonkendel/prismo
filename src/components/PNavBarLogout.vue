@@ -1,6 +1,6 @@
 <template lang="pug">
-  b-dropdown(hoverable custom position="is-bottom-left")
-    button.button.is-info(slot='trigger')
+  b-dropdown.dropdown(hoverable custom position="is-bottom-left")
+    template(slot='trigger')
       img.profile-picture(:src="userInfo.picture")
 
     b-dropdown-item.user-info(custom)
@@ -40,6 +40,10 @@ export default {
 
 <style lang="scss" scoped>
   @import "../assets/prismo-styles";
+
+  .dropdown {
+    padding-top: 8px;
+  }
 
   .user-info {
     text-align: center;
