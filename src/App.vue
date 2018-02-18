@@ -2,17 +2,14 @@
   #app
     p-nav-bar
     router-view
-    p-auth
 </template>
 
 <script>
-import PAuth from '@/components/PAuth';
 import PNavBar from '@/components/PNavBar';
 
 export default {
   name: 'App',
   components: {
-    PAuth,
     PNavBar,
   },
 };
