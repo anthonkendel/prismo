@@ -1,10 +1,10 @@
+import { authService, prismoProfileService } from '@/services';
 import PProfile from '@/components/PProfile';
 import PProfileEdit from '@/components/PProfileEdit';
 import PProfileView from '@/components/PProfileView';
 import PWelcome from '@/components/PWelcome';
 import Router from 'vue-router';
 import Vue from 'vue';
-import authService from '@/services/authService';
 import store from '@/store';
 
 Vue.use(Router);
@@ -66,6 +66,9 @@ async function validateAccessTokenReceivedFromHash(hash) {
 
       const userInfo = await authService.getUserInfo(accessToken);
       store.commit('setUserInfo', userInfo);
+
+      const profile = await prismoProfileService.getPrismoProfile(accessToken);
+      store.commit('setPrismoProfile', profile);
 
       router.push({ hash: '' });
     }

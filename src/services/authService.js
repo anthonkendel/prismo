@@ -9,7 +9,7 @@ const TOKEN_INFO_ENDPOINT = 'https://www.googleapis.com/oauth2/v3/tokeninfo';
 const DRIVE_APP_DATA_SCOPE = 'https://www.googleapis.com/auth/drive.appdata';
 const USER_INFO_PROFILE_SCOPE = 'https://www.googleapis.com/auth/userinfo.profile';
 
-function createAuthorizationHeader(accessToken) {
+function authorizationHeader(accessToken) {
   return { Authorization: `Bearer ${accessToken}` };
 }
 
@@ -62,7 +62,7 @@ export default {
         method: 'get',
         url: USER_INFO_ENDPOINT,
         headers: {
-          ...createAuthorizationHeader(accessToken),
+          ...authorizationHeader(accessToken),
         },
       });
       const { name, picture } = response.data;

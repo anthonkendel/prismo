@@ -14,10 +14,15 @@
     section.section
       .columns
         .column
-          button.button.is-primary(@click="saveChanges") Save changes
+          button.button.is-primary(
+          @click="saveChanges",
+          :class="{ 'is-loading': isLoading }")
+
+            | Save changes
 </template>
 
 <script>
+import { authService, prismoProfileService } from '@/services';
 import { mapGetters, mapMutations } from 'vuex';
 import Eye from '@/models/Eye';
 import PProfileEditEye from '@/components/PProfileEditEye';
@@ -30,6 +35,7 @@ export default {
     return {
       left: new Eye(),
       right: new Eye(),
+      isLoading: false,
     };
   },
   computed: {
@@ -45,15 +51,22 @@ export default {
     ...mapMutations({
       setPrismoProfile: 'setPrismoProfile',
     }),
-    saveChanges() {
+    async saveChanges() {
       const profile = new PrismoProfile({ left: this.left, right: this.right });
-      this.setPrismoProfile(profile);
-      this.$snackbar
-        .open({
-          message: 'Profile saved',
-          type: 'is-primary',
-          actionText: 'OK 👌',
-        });
+      try {
+        this.isLoading = true;
+        await prismoProfileService.uploadPrismoProfile(authService.getAccessToken(), profile);
+        this.setPrismoProfile(profile);
+        this.isLoading = false;
+        this.$snackbar
+          .open({
+            message: 'Profile saved',
+            type: 'is-primary',
+            actionText: 'OK 👌',
+          });
+      } catch (e) {
+        // Intentionally left empty.
+      }
     },
   },
 };
