@@ -8,8 +8,11 @@ let VALIDATE_ACCESS_TOKEN_IN_BACKGROUND_INTERVAL = null;
 export default {
   start() {
     VALIDATE_ACCESS_TOKEN_IN_BACKGROUND_INTERVAL = setInterval(async () => {
-      const authenticated = await authService.validateAccessToken(authService.getAccessToken());
-      store.commit('setAuthenticated', authenticated);
+      const accessToken = authService.getAccessToken();
+      if (accessToken) {
+        const authenticated = await authService.validateAccessToken(authService.getAccessToken());
+        store.commit('setAuthenticated', authenticated);
+      }
     }, INTERVAL);
   },
   stop() {
