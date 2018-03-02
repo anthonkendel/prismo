@@ -1,13 +1,13 @@
 <template lang="pug">
   b-field(label="Find your product")
     b-autocomplete(
-    v-model="product.name",
-    :data="data",
-    :loading="isLoading",
     placeholder="e.g. Biofinity",
     field="name",
     icon="search",
     open-on-focus,
+    :value="product.name",
+    :data="data",
+    :loading="isLoading",
     @input="onInput",
     @select="option => selected = option")
       template(slot-scope='props')
@@ -50,13 +50,13 @@ export default {
     });
   },
   methods: {
-    async onInput() {
+    async onInput(input) {
       this.data = [];
       this.isLoading = true;
 
       const products = await productService.getProducts();
       const filteredProducts = products.filter(
-        item => item.name.indexOf(this.product.name) >= 0,
+        item => item.name.indexOf(input) >= 0,
       );
       this.data = [...filteredProducts];
 

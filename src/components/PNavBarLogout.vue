@@ -1,5 +1,5 @@
 <template lang="pug">
-  b-dropdown.dropdown(hoverable custom position="is-bottom-left")
+  b-dropdown.dropdown(hoverable)
     template(slot='trigger')
       img.profile-picture(:src="userInfo.picture")
 
@@ -30,9 +30,17 @@ export default {
       clearStore: 'clearStore',
     }),
     logout() {
-      this.clearStore();
-      authService.setAccessToken('');
-      this.$router.push({ name: 'PWelcome' });
+      this.$dialog
+        .confirm({
+          message: 'Are you sure you want to logout?',
+          cancelText: 'Cancel 🗙',
+          confirmText: 'Yes 👌',
+          onConfirm: () => {
+            this.clearStore();
+            authService.setAccessToken('');
+            this.$router.push({ name: 'PWelcome' });
+          },
+        });
     },
   },
 };

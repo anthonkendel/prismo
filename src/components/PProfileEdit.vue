@@ -58,11 +58,11 @@ export default {
         await prismoProfileService.uploadPrismoProfile(authService.getAccessToken(), profile);
         this.setPrismoProfile(profile);
         this.isLoading = false;
-        this.$snackbar
+        this.$toast
           .open({
-            message: 'Profile saved',
+            message: 'Profile saved 👌',
+            position: 'is-top',
             type: 'is-primary',
-            actionText: 'OK 👌',
           });
       } catch (e) {
         // Intentionally left empty.

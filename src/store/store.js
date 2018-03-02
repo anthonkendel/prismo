@@ -10,6 +10,7 @@ Vue.use(Vuex);
 
 const KEY = 'PRISMO';
 const store = new Vuex.Store({
+  strict: process.env.NODE_ENV !== 'production',
   state,
   getters,
   mutations,
@@ -22,4 +23,7 @@ const store = new Vuex.Store({
   ],
 });
 
+export {
+  store,
+};
 export default store;

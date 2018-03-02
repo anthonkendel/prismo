@@ -4,7 +4,14 @@ import driveService from '@/services/driveService';
 import prismoProfileService from '@/services/prismoProfileService';
 import productService from '@/services/productService';
 
-// eslint-disable-next-line
+const services = {
+  authService,
+  backgroundService,
+  driveService,
+  productService,
+  prismoProfileService,
+};
+
 export {
   authService,
   backgroundService,
@@ -12,3 +19,4 @@ export {
   productService,
   prismoProfileService,
 };
+export default services;

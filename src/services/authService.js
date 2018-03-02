@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const ACCESS_TOKEN_KEY = 'ACCESS_TOKEN';
 
-const CLIENT_ID = '<>.apps.googleusercontent.com';
+const CLIENT_ID = '248448590515-add45i8g47fmpu9jnsq0is5d6o83o80c.apps.googleusercontent.com';
 const OAUTH_ENDPOINT = 'https://accounts.google.com/o/oauth2/v2/auth';
 const TOKEN_INFO_ENDPOINT = 'https://www.googleapis.com/oauth2/v3/tokeninfo';
 const DRIVE_APP_DATA_SCOPE = 'https://www.googleapis.com/auth/drive.appdata';
