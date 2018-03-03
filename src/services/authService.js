@@ -5,6 +5,7 @@ const ACCESS_TOKEN_KEY = 'ACCESS_TOKEN';
 
 const CLIENT_ID = '248448590515-add45i8g47fmpu9jnsq0is5d6o83o80c.apps.googleusercontent.com';
 const OAUTH_ENDPOINT = 'https://accounts.google.com/o/oauth2/v2/auth';
+const REVOKE_ENDPOINT = 'https://accounts.google.com/o/oauth2/revoke';
 const TOKEN_INFO_ENDPOINT = 'https://www.googleapis.com/oauth2/v3/tokeninfo';
 const DRIVE_APP_DATA_SCOPE = 'https://www.googleapis.com/auth/drive.appdata';
 const USER_INFO_PROFILE_SCOPE = 'https://www.googleapis.com/auth/userinfo.profile';
@@ -44,8 +45,8 @@ export default {
   async validateAccessToken(accessToken) {
     try {
       const response = await axios.request({
-        url: TOKEN_INFO_ENDPOINT,
         method: 'post',
+        url: TOKEN_INFO_ENDPOINT,
         params: {
           access_token: accessToken,
         },
@@ -55,15 +56,29 @@ export default {
       return false;
     }
   },
+  async revokeAccessToken(accessToken) {
+    try {
+      await axios.request({
+        method: 'get',
+        url: REVOKE_ENDPOINT,
+        params: {
+          token: accessToken,
+        },
+      });
+      return true;
+    } catch (e) {
+      return false;
+    }
+  },
   async getUserInfo(accessToken) {
     const USER_INFO_ENDPOINT = 'https://www.googleapis.com/userinfo/v2/me';
     try {
       const response = await axios.request({
         method: 'get',
-        url: USER_INFO_ENDPOINT,
         headers: {
           ...authorizationHeader(accessToken),
         },
+        url: USER_INFO_ENDPOINT,
       });
       const { name, picture } = response.data;
       return new UserInfo({ name, picture });

@@ -36,8 +36,8 @@ export default {
           cancelText: 'Cancel 🗙',
           confirmText: 'Yes 👌',
           onConfirm: () => {
-            this.clearStore();
             authService.setAccessToken('');
+            this.clearStore();
             this.$router.push({ name: 'PWelcome' });
           },
         });
