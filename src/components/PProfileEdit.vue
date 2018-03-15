@@ -7,16 +7,21 @@
       .columns
         .column
           h3.title Left eye
-          p-profile-edit-eye(:eye="left")
+          p-profile-edit-eye(
+          :eye="left",
+          @validation="onValidation")
         .column
           h3.title Right eye
-          p-profile-edit-eye(:eye="right")
+          p-profile-edit-eye(
+          :eye="right",
+          @validation="onValidation")
     section.section
       .columns
         .column
           button.button.is-primary(
           @click="saveChanges",
-          :class="{ 'is-loading': isLoading }")
+          :class="{ 'is-loading': isLoading }",
+          :disabled="!isValid")
             | Save changes
 </template>
 
@@ -26,6 +31,8 @@ import { mapGetters, mapMutations } from 'vuex';
 import Eye from '@/models/Eye';
 import PProfileEditEye from '@/components/PProfileEditEye';
 import PrismoProfile from '@/models/PrismoProfile';
+import numberHelpers from '@/helpers/numberHelpers';
+import toastService from '@/services/toastService';
 
 export default {
   name: 'PProfileEdit',
@@ -35,6 +42,7 @@ export default {
       left: new Eye(),
       right: new Eye(),
       isLoading: false,
+      isValid: false,
     };
   },
   computed: {
@@ -50,22 +58,34 @@ export default {
     ...mapMutations({
       setPrismoProfile: 'setPrismoProfile',
     }),
+    createProfile() {
+      return new PrismoProfile({
+        left: {
+          ...this.left,
+          strength: numberHelpers.parseToInt(this.left.strength),
+          inventory: numberHelpers.parseToInt(this.left.inventory),
+        },
+        right: {
+          ...this.right,
+          strength: numberHelpers.parseToInt(this.left.strength),
+          inventory: numberHelpers.parseToInt(this.left.inventory),
+        },
+      });
+    },
     async saveChanges() {
-      const profile = new PrismoProfile({ left: this.left, right: this.right });
+      const profile = this.createProfile();
       try {
         this.isLoading = true;
         await prismoProfileService.uploadPrismoProfile(authService.getAccessToken(), profile);
         this.setPrismoProfile(profile);
         this.isLoading = false;
-        this.$toast
-          .open({
-            message: 'Profile saved 👌',
-            position: 'is-top',
-            type: 'is-primary',
-          });
+        toastService.open({ vue: this, message: 'Profile saved 👌' });
       } catch (e) {
         // Intentionally left empty.
       }
+    },
+    onValidation(valid) {
+      this.isValid = valid;
     },
   },
 };
