@@ -7,11 +7,14 @@
             b-icon(icon="dot-circle")
         button.button.navbar-burger.is-info(
         @click="toggleNavigation",
-        :class="{ 'is-active': isMobileNavigation }")
+        :class="{ 'is-active': isMobileNavigation }",
+        v-if="isAuthenticated")
           span
           span
           span
-      .navbar-menu(:class="{ 'is-active': isMobileNavigation }")
+      .navbar-menu(
+      :class="{ 'is-active': isMobileNavigation }",
+      v-if="isAuthenticated")
         .navbar-end(v-if="isAuthenticated")
           router-link.navbar-item(:to="{ 'name': 'PProfileView' }")
             span Profile
