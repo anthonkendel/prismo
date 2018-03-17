@@ -1,8 +1,12 @@
 <template lang="pug">
-  nav.navbar.is-info(role="navigation" aria-label="main navigation")
+  nav.navbar.is-info(
+  role="navigation",
+  aria-label="main navigation")
     .container
       .navbar-brand
-        router-link.navbar-item(:to="{ 'name': 'Prismo' }" exact)
+        router-link.navbar-item(
+        :to="{ 'name': 'Prismo' }",
+        exact)
           .title Prism
             b-icon(icon="dot-circle")
         button.button.navbar-burger.is-info(

@@ -1,6 +1,8 @@
 <template lang="pug">
   div
-    p-profile-edit-eye-autocomplete(:product="eye.product", @input="setProduct")
+    p-profile-edit-eye-autocomplete(
+    :product="eye.product",
+    @input="setProduct")
     .columns
       .column
         b-field.is-expanded(label="Set your strength")
@@ -8,7 +10,7 @@
           v-model="eye.strength",
           placeholder="e.g. 1.4",
           type="number",
-          step=".01"
+          step=".01",
           icon="bullseye",
           min="-15",
           max="10")

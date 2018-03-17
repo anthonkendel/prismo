@@ -17,7 +17,6 @@
           button.button.is-primary(
           @click="saveChanges",
           :class="{ 'is-loading': isLoading }")
-
             | Save changes
 </template>
 

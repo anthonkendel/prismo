@@ -13,7 +13,7 @@
             .buttons.is-centered
               button.button.is-primary(@click="loginWithGoogle")
                 span Login with
-                b-icon(icon="google" pack="fab")
+                b-icon(icon="google", pack="fab")
 </template>
 
 <script>

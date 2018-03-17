@@ -2,11 +2,11 @@
   section.section
     .tabs.is-toggle.is-fullwidth
       ul
-        router-link(:to="{ 'name': 'PProfileView' }" tag="li" exact)
+        router-link(:to="{ 'name': 'PProfileView' }", tag="li", exact)
           a
             span View
             b-icon(icon="eye")
-        router-link(:to="{ 'name': 'PProfileEdit' }" tag="li" exact)
+        router-link(:to="{ 'name': 'PProfileEdit' }", tag="li", exact)
           a
             span Edit
             b-icon(icon="cog")
