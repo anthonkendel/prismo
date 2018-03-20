@@ -62,13 +62,13 @@ export default {
       return new PrismoProfile({
         left: {
           ...this.left,
-          strength: numberHelpers.parseToInt(this.left.strength),
+          strength: numberHelpers.parseToFloat(this.left.strength),
           inventory: numberHelpers.parseToInt(this.left.inventory),
         },
         right: {
           ...this.right,
-          strength: numberHelpers.parseToInt(this.left.strength),
-          inventory: numberHelpers.parseToInt(this.left.inventory),
+          strength: numberHelpers.parseToFloat(this.right.strength),
+          inventory: numberHelpers.parseToInt(this.right.inventory),
         },
       });
     },
