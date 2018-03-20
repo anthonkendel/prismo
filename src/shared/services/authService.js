@@ -1,4 +1,4 @@
-import UserInfo from '@/models/UserInfo';
+import UserInfo from '@/shared/models/UserInfo';
 import axios from 'axios';
 
 const ACCESS_TOKEN_KEY = 'ACCESS_TOKEN';

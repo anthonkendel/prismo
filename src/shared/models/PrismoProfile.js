@@ -1,4 +1,4 @@
-import Eye from '@/models/Eye';
+import Eye from '@/shared/models/Eye';
 
 export default class PrismoProfile {
   constructor({ left = new Eye(), right = new Eye() } = {}) {

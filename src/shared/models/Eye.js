@@ -1,4 +1,4 @@
-import Product from '@/models/Product';
+import Product from '@/shared/models/Product';
 
 export default class EyeSetting {
   constructor({ product = new Product(), strength = 0, inventory = 0, notes = '' } = {}) {

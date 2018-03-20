@@ -1,5 +1,5 @@
-import PrismoProfile from '@/models/PrismoProfile';
-import { driveService } from '@/services';
+import PrismoProfile from '@/shared/models/PrismoProfile';
+import driveService from '@/shared/services/driveService';
 
 const FILE_NAME = 'PrismoProfile.json';
 const FILE_DESCRIPTION = 'JSON file containing prismo profile data';

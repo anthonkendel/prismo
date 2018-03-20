@@ -1,10 +1,11 @@
-import { authService, prismoProfileService } from '@/services';
 import PProfile from '@/components/PProfile';
 import PProfileEdit from '@/components/PProfileEdit';
 import PProfileView from '@/components/PProfileView';
 import PWelcome from '@/components/PWelcome';
 import Router from 'vue-router';
 import Vue from 'vue';
+import authService from '@/shared/services/authService';
+import prismoProfileService from '@/shared/services/prismoProfileService';
 import store from '@/store';
 
 Vue.use(Router);

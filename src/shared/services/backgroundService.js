@@ -1,4 +1,4 @@
-import authService from '@/services/authService';
+import authService from '@/shared/services/authService';
 import store from '@/store';
 
 const SECOND = 1000;

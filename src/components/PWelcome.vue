@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import authService from '@/services/authService';
+import authService from '@/shared/services/authService';
 import { mapGetters } from 'vuex';
 
 export default {

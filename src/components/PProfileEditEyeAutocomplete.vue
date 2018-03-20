@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import { productService } from '@/services';
+import productService from '@/shared/services/productService';
 
 function hide(elements) {
   // eslint-disable-next-line
