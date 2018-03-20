@@ -53,6 +53,21 @@ export default {
 
 <style lang="scss" scoped>
   @import "../assets/prismo-styles";
+  $info-background: #191716;
+  $info-background-hover: #0b0b0a;
+
+  .navbar-menu {
+    background-color: $info-background;
+
+    .navbar-item {
+      color: $info-invert;
+
+      &:hover {
+        color: $info-invert;
+        background-color: $info-background-hover;
+      }
+    }
+  }
 
   .title {
     color: $white;
