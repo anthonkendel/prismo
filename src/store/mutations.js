@@ -1,5 +1,5 @@
-import PrismoProfile from '@/models/PrismoProfile';
-import UserInfo from '@/models/UserInfo';
+import PrismoProfile from '@/shared/models/PrismoProfile';
+import UserInfo from '@/shared/models/UserInfo';
 
 export default {
   setPrismoProfile(state, profile) {

@@ -14,7 +14,7 @@
 
 <script>
 import { mapGetters, mapMutations } from 'vuex';
-import authService from '@/services/authService';
+import authService from '@/shared/services/authService';
 
 export default {
   name: 'PNavBarLogout',

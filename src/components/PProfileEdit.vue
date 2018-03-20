@@ -26,13 +26,14 @@
 </template>
 
 <script>
-import { authService, prismoProfileService } from '@/services';
 import { mapGetters, mapMutations } from 'vuex';
-import Eye from '@/models/Eye';
+import Eye from '@/shared/models/Eye';
 import PProfileEditEye from '@/components/PProfileEditEye';
-import PrismoProfile from '@/models/PrismoProfile';
-import numberHelpers from '@/helpers/numberHelpers';
-import toastService from '@/services/toastService';
+import PrismoProfile from '@/shared/models/PrismoProfile';
+import authService from '@/shared/services/authService';
+import numberHelpers from '@/shared/helpers/numberHelpers';
+import prismoProfileService from '@/shared/services/prismoProfileService';
+import toastService from '@/shared/services/toastService';
 
 export default {
   name: 'PProfileEdit',
