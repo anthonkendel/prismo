@@ -1,15 +1,6 @@
 <template lang="pug">
-  b-dropdown.dropdown(hoverable)
-    template(slot='trigger')
-      img.profile-picture(:src="userInfo.picture")
-
-    b-dropdown-item.user-info(custom)
-      | Logged in as #[b {{ userInfo.name }}]
-    hr.dropdown-divider
-    b-dropdown-item.logout(custom)
-      button.button.is-danger.is-small(@click="logout")
-        span Logout
-        b-icon(icon="sign-out-alt")
+  button.button.is-primary.is-outlined.is-small(@click="logout")
+    b-icon(icon="sign-out-alt")
 </template>
 
 <script>
@@ -47,26 +38,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import "../assets/prismo-styles";
-
-  .dropdown {
-    padding-top: 8px;
-  }
-
-  .user-info {
-    text-align: center;
-  }
-
-  .logout {
-    text-align: center;
-
-    button.button.is-danger.is-small {
-      width: 100%;
-    }
-  }
-
-  .profile-picture {
-    border-radius: 20px;
-    border: 2px solid $primary;
-  }
 </style>
