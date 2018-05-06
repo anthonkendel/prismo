@@ -9,7 +9,7 @@
     :data="data",
     :loading="isLoading",
     @input="onInput",
-    @select="option => selected = option")
+    @select="onSelect")
       template(slot-scope='props')
         .media
           .media-content
@@ -44,6 +44,7 @@ export default {
     };
   },
   mounted() {
+    this.selected = this.product;
     this.$nextTick(() => {
       const dropdowns = this.$el.querySelectorAll('.dropdown-menu');
       hide(dropdowns);
@@ -64,6 +65,9 @@ export default {
       if (this.selected) {
         this.$emit('input', this.selected);
       }
+    },
+    onSelect(option) {
+      this.selected = option;
     },
   },
 };

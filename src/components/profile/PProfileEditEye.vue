@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import PProfileEditEyeAutocomplete from '@/components/PProfileEditEyeAutocomplete';
+import PProfileEditEyeAutocomplete from '@/components/profile/PProfileEditEyeAutocomplete';
 
 const VALIDATION = 'validation';
 
@@ -60,7 +60,9 @@ export default {
   },
   methods: {
     setProduct(product) {
-      this.eye.product = product;
+      if (product.name && product.supplier) {
+        this.eye.product = product;
+      }
     },
     checkHtml5Validity() {
       const isStrengthValid = this.$refs.strength.checkHtml5Validity();

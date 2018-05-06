@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import PProfileViewLevelItem from '@/components/PProfileViewLevelItem';
+import PProfileViewLevelItem from '@/components/profile/PProfileViewLevelItem';
 import { mapGetters } from 'vuex';
 
 export default {

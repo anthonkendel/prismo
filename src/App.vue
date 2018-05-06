@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import PNavBar from '@/components/PNavBar';
+import PNavBar from '@/components/nav-bar/PNavBar';
 
 export default {
   name: 'App',
