@@ -28,7 +28,7 @@
 <script>
 import { mapGetters, mapMutations } from 'vuex';
 import Eye from '@/shared/models/Eye';
-import PProfileEditEye from '@/components/PProfileEditEye';
+import PProfileEditEye from '@/components/profile/PProfileEditEye';
 import PrismoProfile from '@/shared/models/PrismoProfile';
 import authService from '@/shared/services/authService';
 import numberHelpers from '@/shared/helpers/numberHelpers';
@@ -52,8 +52,8 @@ export default {
     }),
   },
   mounted() {
-    this.left = { ...new Eye(), ...this.profile.left };
-    this.right = { ...new Eye(), ...this.profile.right };
+    this.left = new Eye(this.profile.left);
+    this.right = new Eye(this.profile.right);
   },
   methods: {
     ...mapMutations({

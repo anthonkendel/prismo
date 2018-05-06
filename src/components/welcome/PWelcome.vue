@@ -36,7 +36,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import "../assets/prismo-styles";
+  @import "../../assets/prismo-styles";
 
   .hero {
     text-align: center;

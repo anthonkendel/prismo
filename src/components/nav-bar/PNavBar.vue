@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import PNavBarLogout from '@/components/PNavBarLogout';
+import PNavBarLogout from '@/components/nav-bar/PNavBarLogout';
 import { mapGetters } from 'vuex';
 
 export default {
@@ -52,7 +52,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import "../assets/prismo-styles";
+  @import "../../assets/prismo-styles";
   $info-background: #191716;
   $info-background-hover: #0b0b0a;
 

@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import PProfileTabs from '@/components/PProfileTabs';
+import PProfileTabs from '@/components/profile/PProfileTabs';
 
 export default {
   name: 'PProfile',
