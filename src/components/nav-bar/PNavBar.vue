@@ -20,6 +20,8 @@
       :class="{ 'is-active': isMobileNavigation }",
       v-if="isAuthenticated")
         .navbar-end(v-if="isAuthenticated")
+          router-link.navbar-item(:to="{ 'name': 'PMonthly' }")
+            span Monthly
           router-link.navbar-item(:to="{ 'name': 'PProfileView' }")
             span Profile
           .navbar-item

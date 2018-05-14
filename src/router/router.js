@@ -1,3 +1,4 @@
+import PMonthly from '@/components/monthly/PMonthly';
 import PProfile from '@/components/profile/PProfile';
 import PProfileEdit from '@/components/profile/PProfileEdit';
 import PProfileView from '@/components/profile/PProfileView';
@@ -50,6 +51,14 @@ const configuration = {
           },
         },
       ],
+    },
+    {
+      path: '/monthly',
+      name: 'PMonthly',
+      component: PMonthly,
+      meta: {
+        authentication: true,
+      },
     },
   ],
 };
