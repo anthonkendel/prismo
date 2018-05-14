@@ -18,7 +18,7 @@
     section.section
       .columns
         .column
-          button.button.is-primary(
+          button.button.is-primary.is-fullwidth(
           @click="saveChanges",
           :class="{ 'is-loading': isLoading }",
           :disabled="!isValid")
@@ -95,9 +95,5 @@ export default {
 <style lang="scss" scoped>
   h2 {
     font-size: 1.6em;
-  }
-
-  button.button.is-primary {
-    width: 100%;
   }
 </style>
